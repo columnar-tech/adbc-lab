@@ -10,14 +10,15 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 
-uv pip install --system -r requirements.txt
-
 cat <<'EOF'
 
 Workshop environment ready.
 
 Try:
-  python exercise_1.py
-  python exercise_2.py
+  uv tool install dbc
+  dbc install duckdb
+  dbc install postgresql
+  uv run exercise_1.py
+  uv run exercise_2.py
 
 EOF

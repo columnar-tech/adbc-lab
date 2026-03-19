@@ -1,3 +1,9 @@
+#!/usr/bin/env -S uv run
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["adbc-driver-manager", "pyarrow", "pandas"]
+# ///
+
 from adbc_driver_manager import dbapi
 
 

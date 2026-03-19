@@ -7,6 +7,7 @@ This repo assumes:
 - Python code uses `adbc-driver-manager`
 - learners install `dbc` themselves
 - learners install the `duckdb` and `postgresql` drivers with `dbc`
+- Python scripts run with `uv run`
 
 ## Exercises
 
@@ -30,8 +31,8 @@ uv --version
 uv tool install dbc
 dbc install duckdb
 dbc install postgresql
-python exercise_1.py
-python exercise_2.py
+uv run exercise_1.py
+uv run exercise_2.py
 ```
 
 If both scripts run cleanly in Codespaces, the environment is at least plausible for teaching.
