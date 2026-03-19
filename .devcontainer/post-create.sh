@@ -10,20 +10,14 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 
+uv pip install --system -r requirements.txt
+
 cat <<'EOF'
 
 Workshop environment ready.
 
 Try:
-  uv run "Code Draft/exercise_1.py"
-  uv run "Code Draft/exercise_2.py"
-
-Learners still need to install:
-  - dbc
-  - the duckdb driver
-  - the postgresql driver
-
-PostgreSQL URI inside the codespace, once drivers are installed:
-  $ADBC_POSTGRES_URI
+  python exercise_1.py
+  python exercise_2.py
 
 EOF

@@ -21,7 +21,6 @@ Minimal workshop test repo for validating a Codespaces-based ADBC teaching envir
 ```bash
 python --version
 uv --version
-uv pip install -r requirements.txt
 python exercise_1.py
 python exercise_2.py
 ```

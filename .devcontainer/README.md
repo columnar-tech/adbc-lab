@@ -20,7 +20,6 @@ If you want to validate whether Codespaces is the right teaching environment, th
 ```bash
 python --version
 uv --version
-uv pip install -r requirements.txt
 python exercise_1.py
 python exercise_2.py
 ```
@@ -28,7 +27,7 @@ python exercise_2.py
 Things to judge while testing:
 
 - how long the codespace build takes
-- whether `uv pip install -r requirements.txt` is painless
+- whether dependency installation in `postCreateCommand` is painless
 - whether Postgres is reliably ready when you need it
 - whether the whole flow is simpler than local setup
 
