@@ -1,0 +1,4 @@
+adbc-driver-duckdb
+adbc-driver-postgresql
+pyarrow
+pandas
