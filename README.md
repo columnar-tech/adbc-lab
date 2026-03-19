@@ -2,6 +2,12 @@
 
 Minimal workshop test repo for validating a Codespaces-based ADBC teaching environment.
 
+This repo assumes:
+
+- Python code uses `adbc-driver-manager`
+- learners install `dbc` themselves
+- learners install the `duckdb` and `postgresql` drivers with `dbc`
+
 ## Exercises
 
 - `exercise_1.py`
@@ -21,6 +27,9 @@ Minimal workshop test repo for validating a Codespaces-based ADBC teaching envir
 ```bash
 python --version
 uv --version
+uv tool install dbc
+dbc install duckdb
+dbc install postgresql
 python exercise_1.py
 python exercise_2.py
 ```

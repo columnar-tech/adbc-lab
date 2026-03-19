@@ -1,7 +1,7 @@
-from adbc_driver_duckdb import dbapi
+from adbc_driver_manager import dbapi
 
 
-with dbapi.connect("workshop.duckdb") as conn:
+with dbapi.connect(driver="duckdb", db_kwargs={"path": "workshop.duckdb"}) as conn:
     with conn.cursor() as cursor:
         cursor.execute(
             """

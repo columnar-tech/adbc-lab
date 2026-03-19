@@ -1,4 +1,4 @@
-from adbc_driver_duckdb import dbapi
+from adbc_driver_manager import dbapi
 
 
 DB_PATH = "workshop.duckdb"
@@ -7,7 +7,7 @@ DB_PATH = "workshop.duckdb"
 def main() -> None:
     print(f"Connecting to DuckDB at {DB_PATH}...")
 
-    with dbapi.connect(DB_PATH) as conn:
+    with dbapi.connect(driver="duckdb", db_kwargs={"path": DB_PATH}) as conn:
         with conn.cursor() as cursor:
             print("Creating a small demo table...")
             cursor.execute(

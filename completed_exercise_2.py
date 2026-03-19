@@ -1,13 +1,12 @@
 import os
 
-from adbc_driver_duckdb import dbapi as duckdb_dbapi
-from adbc_driver_postgresql import dbapi as postgresql_dbapi
+from adbc_driver_manager import dbapi
 
 
 POSTGRES_URI = os.getenv("POSTGRES_URI", "postgresql://postgres:postgres@postgres:5432/postgres")
 
 
-with postgresql_dbapi.connect(POSTGRES_URI) as pg_conn:
+with dbapi.connect(driver="postgresql", db_kwargs={"uri": POSTGRES_URI}) as pg_conn:
     with pg_conn.cursor() as pg_cursor:
         pg_cursor.execute(
             """
@@ -25,7 +24,7 @@ with postgresql_dbapi.connect(POSTGRES_URI) as pg_conn:
         trips = pg_cursor.fetch_arrow_table()
 
 
-with duckdb_dbapi.connect("portable_analysis.duckdb") as duck_conn:
+with dbapi.connect(driver="duckdb", db_kwargs={"path": "portable_analysis.duckdb"}) as duck_conn:
     with duck_conn.cursor() as duck_cursor:
         duck_cursor.adbc_ingest("trips_from_postgres", trips, mode="replace")
         duck_cursor.execute(

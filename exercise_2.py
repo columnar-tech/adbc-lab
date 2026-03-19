@@ -1,7 +1,6 @@
 import os
 
-from adbc_driver_duckdb import dbapi as duckdb_dbapi
-from adbc_driver_postgresql import dbapi as postgresql_dbapi
+from adbc_driver_manager import dbapi
 
 
 POSTGRES_URI = os.getenv("POSTGRES_URI", "postgresql://postgres:postgres@postgres:5432/postgres")
@@ -10,7 +9,7 @@ DUCKDB_PATH = "portable_analysis.duckdb"
 
 def main() -> None:
     print("Connecting to PostgreSQL...")
-    with postgresql_dbapi.connect(POSTGRES_URI) as pg_conn:
+    with dbapi.connect(driver="postgresql", db_kwargs={"uri": POSTGRES_URI}) as pg_conn:
         with pg_conn.cursor() as pg_cursor:
             print("Reading a small result set from PostgreSQL...")
             pg_cursor.execute(
@@ -31,7 +30,7 @@ def main() -> None:
     print(f"Fetched {trips.num_rows} rows from PostgreSQL.")
 
     print(f"Connecting to DuckDB at {DUCKDB_PATH}...")
-    with duckdb_dbapi.connect(DUCKDB_PATH) as duck_conn:
+    with dbapi.connect(driver="duckdb", db_kwargs={"path": DUCKDB_PATH}) as duck_conn:
         with duck_conn.cursor() as duck_cursor:
             print("Writing the result into DuckDB...")
             duck_cursor.adbc_ingest("trips_from_postgres", trips, mode="replace")

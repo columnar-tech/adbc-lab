@@ -1,4 +1,3 @@
-adbc-driver-duckdb
-adbc-driver-postgresql
+adbc-driver-manager
 pyarrow
 pandas
