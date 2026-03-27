@@ -2,26 +2,16 @@
 
 Minimal workshop test repo for validating a Codespaces-based ADBC teaching environment.
 
-This repo assumes:
+The code/exercises contained here do not represent final versions of exercises for the workshop, but do contain a basic version of code generated with matching expected dependencies, to test the following assumptions:
 
 - Python code uses `adbc-driver-manager`
 - learners install `dbc` themselves
 - learners install the `duckdb` and `postgresql` drivers with `dbc`
 - Python scripts run with `uv run`
 
-## Exercises
+## Setup
 
-- `exercise_1.py`
-  Self-contained DuckDB exercise. Create a small table, run a query, and inspect the Arrow result.
-
-- `completed_exercise_1.py`
-  Minimal completed version of Exercise 1.
-
-- `exercise_2.py`
-  PostgreSQL to DuckDB exercise. Read a small result from PostgreSQL and land it in DuckDB.
-
-- `completed_exercise_2.py`
-  Minimal completed version of Exercise 2.
+Go to https://github.com/codespaces/new and select this repo.
 
 ## Intended Codespaces Test Flow
 
