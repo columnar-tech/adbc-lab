@@ -1,0 +1,45 @@
+Exercise 2: Work locally with DuckDB
+=====================================
+
+You pulled some interesting data from Postgres. Now you want to save it locally
+so you can keep exploring without needing the database connection — maybe on
+your laptop, maybe offline.
+
+Part 1: Install the DuckDB driver
+-----------------------------------
+
+    dbc install duckdb
+
+
+Part 2: Move data from Postgres to DuckDB
+------------------------------------------
+
+Run exercise_2.py:
+
+    uv run exercise_2.py
+
+This pulls trip data from Postgres, loads it into a local DuckDB file using
+adbc_ingest(), and then runs a query against DuckDB.
+
+- Look at the code. How much had to change to query DuckDB instead of Postgres?
+- What did adbc_ingest() do? Did you need to write any SQL to create the table?
+
+
+Part 3: Same query, different backend
+--------------------------------------
+
+The script runs the same aggregation query against both Postgres and DuckDB.
+
+- Are the results the same?
+- What would you need to change to point this at a completely different database?
+
+
+Go further
+----------
+
+If you've got time:
+
+- Try querying your local DuckDB file directly — it's just a file on disk.
+  What tables are in it? What does the schema look like?
+- Try changing the query in exercise_2.py — can you find the longest
+  average trip duration by start station?

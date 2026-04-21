@@ -1,3 +1,0 @@
-adbc-driver-manager
-pyarrow
-pandas

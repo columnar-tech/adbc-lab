@@ -1,0 +1,44 @@
+Exercise 1: Install ADBC and run your first query
+==================================================
+
+You're an analyst. There's a Postgres database with NYC Citi Bike trip data —
+about a million rows of trips with timestamps, stations, durations, and user info.
+You want to pull some data down to explore.
+
+Part 1: Install dbc
+--------------------
+
+dbc is a CLI tool for installing ADBC drivers. Install it with:
+
+    uv tool install dbc
+
+Try running these to see what's available:
+
+    dbc search
+    dbc info postgresql
+
+
+Part 2: Install the PostgreSQL driver
+--------------------------------------
+
+    dbc install postgresql
+
+
+Part 3: Run your first ADBC query
+-----------------------------------
+
+    uv run exercise_1.py
+
+This connects to Postgres using ADBC and pulls trip data as an Arrow table.
+
+
+Go further
+----------
+
+If you've got time, try these:
+
+- Change fetch_arrow_table() to fetchall() — what do you get instead?
+- Change fetch_arrow_table() to fetch_df() — what do you get?
+- Add print(result.schema) to see the column types
+- Try changing the query — what are the most popular start stations?
+  What's the average trip duration by user type?
