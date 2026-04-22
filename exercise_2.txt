@@ -14,21 +14,21 @@ Part 1: Install the DuckDB driver
 Part 2: Move data from Postgres to DuckDB
 ------------------------------------------
 
-Run exercise_2.py:
+Open exercise_2.py. The script pulls all trip data from Postgres and loads it
+into a local DuckDB file using adbc_ingest().
+
+It then queries Postgres — but the DuckDB query section is incomplete.
+Fill in the blanks to run the same query against DuckDB.
+
+Hint: look at the Postgres query block just above — the DuckDB version is
+almost identical.
+
+
+Part 3: Run it
+--------------
 
     uv run exercise_2.py
 
-This pulls trip data from Postgres, loads it into a local DuckDB file using
-adbc_ingest(), and then runs a query against DuckDB.
-
-- Look at the code. How much had to change to query DuckDB instead of Postgres?
+- Are the results the same across both backends?
 - What did adbc_ingest() do? Did you need to write any SQL to create the table?
-
-
-Part 3: Same query, different backend
---------------------------------------
-
-The script runs the same aggregation query against both Postgres and DuckDB.
-
-- Are the results the same?
-- What would you need to change to point this at a completely different database?
+- How much of the code had to change to switch from Postgres to DuckDB?

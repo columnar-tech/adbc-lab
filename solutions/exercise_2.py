@@ -49,9 +49,8 @@ with dbapi.connect(driver="postgresql", db_kwargs={"uri": POSTGRES_URI}) as conn
         print(cur.fetch_arrow_table())
 
 print()
-# TODO: run the same query against DuckDB
 print("=== DuckDB ===")
-___
-    ___
-        ___
-        ___
+with dbapi.connect(driver="duckdb", db_kwargs={"path": "local_analysis.duckdb"}) as conn:
+    with conn.cursor() as cur:
+        cur.execute(QUERY)
+        print(cur.fetch_arrow_table())

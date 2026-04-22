@@ -27,9 +27,10 @@ Part 2: Install the PostgreSQL driver
 Part 3: Run your first ADBC query
 -----------------------------------
 
-    uv run exercise_1.py
+Open exercise_1.py. The query is written but the ADBC connection and fetch
+calls have blanks. Fill them in, then run it:
 
-This connects to Postgres using ADBC and pulls trip data as an Arrow table.
+    uv run exercise_1.py
 
 
 Go further
