@@ -52,11 +52,4 @@ cat <<'EOF'
 
 Workshop environment ready.
 
-Try:
-  uv tool install dbc
-  dbc install postgresql
-  dbc install duckdb
-  uv run exercise_1.py
-  uv run exercise_2.py
-
 EOF
