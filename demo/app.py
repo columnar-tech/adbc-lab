@@ -7,7 +7,7 @@ import streamlit as st
 st.set_page_config(page_title="Citi Bike Explorer", layout="wide")
 
 # --- Config ---
-POSTGRES_URI = os.getenv("POSTGRES_URI", "postgresql://postgres:postgres@localhost:5432/postgres")
+POSTGRES_URI = os.getenv("ADBC_POSTGRES_URI", "postgresql://postgres:postgres@localhost:5432/postgres")
 
 # --- Sidebar ---
 question = st.sidebar.radio(

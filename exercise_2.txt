@@ -32,3 +32,19 @@ Part 3: Run it
 - Are the results the same across both backends?
 - What did adbc_ingest() do? Did you need to write any SQL to create the table?
 - How much of the code had to change to switch from Postgres to DuckDB?
+
+
+Extension: Point the demo app at DuckDB
+----------------------------------------
+
+You've got the Citi Bike data in a local DuckDB file now. Can you modify the
+Streamlit demo app to query DuckDB instead of Postgres?
+
+1. Open demo/app.py and update the ADBC connection to point at your local
+   DuckDB file instead of Postgres.
+
+2. Run it:
+
+    uv run --with "adbc-driver-manager, streamlit, pydeck, pandas" streamlit run demo/app.py
+
+How does DuckDB's query time compare to Postgres?

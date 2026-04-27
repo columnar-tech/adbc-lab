@@ -40,3 +40,20 @@ If you've got time, try these:
 
 - Change fetch_arrow_table() to fetchall() — what do you get instead?
 - Change fetch_arrow_table() to fetch_df() — what do you get?
+
+
+Extension: See ADBC in action
+-----------------------------
+
+You saw the Streamlit demo earlier — now run it yourself. This app queries the
+same Citi Bike data, but lets you toggle between psycopg2 (row-based) and ADBC
+(columnar) and see the speed difference live.
+
+Run it with:
+
+    uv run --with "psycopg2-binary, adbc-driver-manager, streamlit, pydeck, pandas" streamlit run demo/app.py
+
+Things to try:
+
+- Toggle between psycopg2 and ADBC and compare the query times
+- Try different numbers of trips — how does the speed gap change as you scale up?
